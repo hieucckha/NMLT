@@ -11,7 +11,7 @@ int main() {
     // int *ptrInt = numberToArray(12345);
     // cout << checkPalindromNumber(ptrInt, returnLengthNumber(12345)) << endl;
     for (int i = 0; i < sizeof(test1) / sizeof(int); ++i) {
-		cout << test1[i] << " " << checkIsLarger(test1[i]) << " " << checkIsSmaller(test1[i]) << endl;
+        cout << test1[i] << " " << checkIsLarger(test1[i]) << " " << checkIsSmaller(test1[i]) << endl;
     }
 
     return 0;
