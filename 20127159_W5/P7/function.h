@@ -1,7 +1,9 @@
 #ifndef _FUNCTION_H
 #define _FUNCTION_H
 
-int divide(int, int);
+//* * Divide a number by number using subtraction
+bool divide(int a, int d, int &q);
 
-int mod(int, int);
+//* * Retrun remainder after dividing one number by number
+bool mod(int a, int d, int &r);
 #endif  // _FUNCTION_H

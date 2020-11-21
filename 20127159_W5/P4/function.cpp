@@ -1,5 +1,10 @@
 #include "function.h"
 
+/**
+ * returnLengthNumber
+ * * Caculate the length of a number
+ * * Example: 12345 - 5
+*/
 int returnLengthNumber(int inputNumber) {
     int length = 0;
     while (inputNumber != 0) {
@@ -9,6 +14,11 @@ int returnLengthNumber(int inputNumber) {
     return length;
 }
 
+/**
+ * reverseNumber
+ * * Reverse order of digits in numbers uisng math
+ * * Example: 12345 - 54321
+*/
 int reverseNumber(int inputNumber) {
     int tempNumber = 0;
     while (inputNumber != 0) {
@@ -18,7 +28,11 @@ int reverseNumber(int inputNumber) {
     return tempNumber;
 }
 
-// Using math
+/**
+ * checkPalindromNumber
+ * * Check if number is Palindrome, using compare with reverse that number
+ * * Example: 12345 - 54321 is right  
+*/
 bool checkPalindromNumber(int inputNumber) {
     if (inputNumber == reverseNumber(inputNumber)) {
         return true;
@@ -27,6 +41,11 @@ bool checkPalindromNumber(int inputNumber) {
     }
 }
 
+/**
+ * *numberToArray
+ * * Return a dynamic array which store digit of the number
+ * @param: inputNumber: input a number, return: a pointer points to array
+*/
 int *numberToArray(int inputNumber) {
     int length = returnLengthNumber(inputNumber);
     int *ptrInt = new int[length];
@@ -38,7 +57,12 @@ int *numberToArray(int inputNumber) {
     return ptrInt;
 }
 
-// Using array
+/**
+ * checkPalindromNumber
+ * * Check if number is Palindrome, using compare with the pair of digit
+ * * Example: 123321 - 1|1, 2|2, 3|3
+ * @param: *inputArray: pointer points to array which store digit of inputNumber, lengthOfArray: length of number 
+*/
 bool checkPalindromNumber(int *inputArray, int lengthOfArray) {
     // Length is even
     if (lengthOfArray % 2 == 0) {
@@ -60,37 +84,45 @@ bool checkPalindromNumber(int *inputArray, int lengthOfArray) {
     }
 }
 
-/* 
-? Check if each charater of number is equal
-! 123321 = 1
-! Fix the bellow function
+/** 
+ * checkIsLarger
+ * * Check if digit of number bigger and bigger
+ * * Example: 12345 - 1 | 54321 - 0 
 */
 bool checkIsLarger(int inputNumber) {
-    inputNumber = reverseNumber(inputNumber);
+    int tempNumber;
+    tempNumber = reverseNumber(inputNumber);
 
-    int prev = inputNumber % 10;
-    inputNumber /= 10;
-	int now = inputNumber % 10;
-    
-	for (int i = 0; i < (returnLengthNumber(inputNumber) - 1); ++i) {
+    int prev = tempNumber % 10;
+    tempNumber /= 10;
+    int now = tempNumber % 10;
+
+    for (int i = 0; i < (returnLengthNumber(inputNumber) - 1); ++i) {
         if (now < prev) {
             return false;
         }
-		prev = now;
-		inputNumber /= 10;
-		now = inputNumber % 10;
-	}
+        prev = now;
+        tempNumber /= 10;
+        now = tempNumber % 10;
+    }
     return true;
 }
 
-// ? Check if each charater of number is equal
+/** 
+ * checkIsLarger
+ * * Check if digit of number smaller and smaller
+ * * Example: 12345 - 0 | 54321 - 1 
+*/
 bool checkIsSmaller(int inputNumber) {
-    inputNumber = reverseNumber(inputNumber);
-    int prev = inputNumber % 10;
+    int tempNumber;
+    tempNumber = reverseNumber(inputNumber);
+    
+    int prev = tempNumber % 10;
     int now = 0;
-    inputNumber /= 10;
+    tempNumber /= 10;
+    
     for (int i = 0; i < returnLengthNumber(inputNumber); ++i) {
-        now = inputNumber % 10;
+        now = tempNumber % 10;
         if (now > prev) {
             return false;
         }
@@ -98,6 +130,10 @@ bool checkIsSmaller(int inputNumber) {
     return true;
 }
 
+/**
+ * returnMax
+ * * Find the biggest in number
+*/ 
 int returnMax(int inputNumber) {
     int max = 0;
     while (inputNumber != 0) {
@@ -106,7 +142,13 @@ int returnMax(int inputNumber) {
         }
         inputNumber /= 10;
     }
+    return max;
 }
+
+/**
+ * returnMax
+ * * Find the smallest in number
+*/ 
 int returnMin(int inputNumber) {
     int min = 0;
     while (inputNumber != 0) {
@@ -115,4 +157,5 @@ int returnMin(int inputNumber) {
         }
         inputNumber /= 10;
     }
+    return min;
 }

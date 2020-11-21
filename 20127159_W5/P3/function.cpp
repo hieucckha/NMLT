@@ -2,13 +2,17 @@
 
 #include "math.h"
 
-int USCLN(int x, int y, int z) {
+/**
+ * USCLN
+ * * Find greatest common divisor
+*/
+int USCLN(int a, int b, int c) {
     int max = 0;
-    max = (x > y) ? x : y;
-    max = (max > z) ? max : z;
+    max = (a > b) ? a : b;
+    max = (max > c) ? max : c;
 
     for (int i = max; i > 0; --i) {
-        if ((x % i == 0) && (y % i == 0) && (z % i == 0)) {
+        if ((a % i == 0) && (b % i == 0) && (c % i == 0)) {
             return i;
         }
     }

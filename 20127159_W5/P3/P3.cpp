@@ -4,13 +4,13 @@
 using namespace std;
 
 int main() {
-    const int test1[] = {0, 36};
-    const int test2[] = {0, 15};
-    const int test3[] = {0, 105};
-    for (int i = 0; i < sizeof(test1) / sizeof(int); ++i) {
-        cout << test1[i] << " " << test2[i] << " " << test3[i] << " ";
-        cout << USCLN(test1[i], test2[i], test3[i]) << endl;
-    }
-
+    int a = 0, b = 0, c = 0;
+    cout << "Input a (a > 0): ";
+    cin >> a;
+    cout << "Input b (b > 0): ";
+    cin >> b;
+    cout << "Input c (c > 0): ";
+    cin >> c;
+    cout << "Greatest common divisor of a, b, c: " << USCLN(a, b, c);
     return 0;
 }

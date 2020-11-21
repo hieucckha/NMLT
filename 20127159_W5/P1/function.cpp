@@ -3,6 +3,11 @@
 #include <iostream>
 
 #include "math.h"
+
+/**
+ * checkPrimaryNumber
+ * * Checking a number if it is a primary number
+ */  
 bool checkPrimaryNumber(int inputNumber) {
     if ((inputNumber == 0) || (inputNumber == 1)) {
         return false;
@@ -15,6 +20,10 @@ bool checkPrimaryNumber(int inputNumber) {
     return true;
 }
 
+/**
+ * printPrimaryNumber
+ * * Print all primary number < inputNumber
+ */ 
 void printPrimaryNumber(int inputNumber) {
     for (int i = 0; i <= inputNumber; ++i) {
         if (checkPrimaryNumber(i) == true) {
@@ -23,7 +32,11 @@ void printPrimaryNumber(int inputNumber) {
     }
 }
 
-void printPrimaryOfNumber(int inputNumber) {
+/**
+ * printPrimeFactor
+ * * Print prime factor of number
+ */ 
+void printPrimeFactor(int inputNumber) {
     int tempNumber = inputNumber;
     int count;
 
@@ -57,6 +70,11 @@ void printPrimaryOfNumber(int inputNumber) {
     }
 }
 
+/**
+ * printEachCharaterR2L
+ * * Print each digit of number from right to left
+ * * Example: 12345 - 5 4 3 2 1
+ */
 void printEachCharaterR2L(int inputNumber) {
     while (inputNumber != 0) {
         std::cout << (inputNumber % 10) << " ";
@@ -65,6 +83,11 @@ void printEachCharaterR2L(int inputNumber) {
     std::cout << std::endl;
 }
 
+/**
+ * reverseNumber
+ * * Reverse the digit of number
+ * * Example: 12345 - 54321
+ */
 int reverseNumber(int inputNumber) {
     int tempNumber = 0;
     while (inputNumber != 0) {
@@ -74,6 +97,11 @@ int reverseNumber(int inputNumber) {
     return tempNumber;
 }
 
+/**
+ * printEachCharaterL2R
+ * * Print each digit of number from left to right
+ * * Example: 12345 - 1 2 3 4 5
+ */
 void printEachCharaterL2R(int inputNumber) {
     inputNumber = reverseNumber(inputNumber);
     while (inputNumber != 0) {
@@ -83,6 +111,11 @@ void printEachCharaterL2R(int inputNumber) {
     std::cout << std::endl;
 }
 
+/**
+ * sumOfEachCharaterNumber
+ * * Caculate sum of digit in number
+ * * Example: 12345 - 15
+ */
 int sumOfEachCharaterNumber(int inputNumber) {
 	int resualt = 0;
 
@@ -94,6 +127,11 @@ int sumOfEachCharaterNumber(int inputNumber) {
 	return resualt;
 }
 
+/**
+ * sumOfEachCharaterNumberLower10
+ * * Caculate sum of digit in number until sum smaller than 10
+ * * Example: 12345 - 15 - 6
+ */
 int sumOfEachCharaterNumberLower10(int inputNumber) {
 	int resualt = 0;
 	resualt = sumOfEachCharaterNumber(inputNumber);

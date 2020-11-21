@@ -4,14 +4,13 @@
 
 using namespace std;
 int main() {
-    const int test01[] = {
-        27, 16, 369, 0};
-    const int test02[] = {
-        45, 25, 890, 1};
-    for (int i = 0; i < sizeof(test01) / sizeof(int); ++i) {
-        // cout << test01[i] << " " << test02[i] << " " << USCLN(test01[i], test02[i]) << endl;
-		cout << test01[i] << " " << test02[i] << " " << BSCNN(test01[i], test02[i]) << endl;
-	}
+    int a = 0, b = 0;
+    cout << "Input a (a > 0): ";
+    cin >> a;
+    cout << "Input b (b > 0): ";
+    cin >> b;
+    cout << "Greatest common divisor of " << a << " & " << b << ": " << USCLN(a, b) << endl;
+    cout << "Least common multiple of " << a << " & " << b << ": " << BSCNN(a, b) << endl;
 
     return 0;
 }

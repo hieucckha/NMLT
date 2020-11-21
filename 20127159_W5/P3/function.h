@@ -1,6 +1,7 @@
 #ifndef _FUNCTION_H
 #define _FUNCTION_H
 
-int USCLN(int, int, int);
+//* * Find Greatest common divisor
+int USCLN(int a, int b, int c);
 
 #endif  // _FUNCTION_H

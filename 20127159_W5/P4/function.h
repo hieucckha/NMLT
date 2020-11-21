@@ -1,30 +1,31 @@
 #ifndef _FUNCTION_H
 #define _FUNCTION_H
 
-int returnLengthNumber(int);
+//* * Caculate the length of a number
+int returnLengthNumber(int inputNumber);
 
-int reverseNumber(int);
+//* * Reverse order of digits in numbers using math
+int reverseNumber(int inputNumber);
 
-bool checkPalindromNumber(int);
+//* * Check if number is Palindrome, using compare with reverse that number
+bool checkPalindromNumber(int inputNumber);
 
-int *numberToArray(int);
+//* * Return a dynamic array which store digit of the number
+int *numberToArray(int inputNumber);
 
-bool checkPalindromNumber(int *, int);
+//* * Check if number is Palindrome, using compare with the pair of digit
+bool checkPalindromNumber(int *inputArray, int lengthOfArray);
 
-/*
-? Check if each charater of number is equal
-! 123321 = 1
-*/
+//* * Check if digit of number bigger and bigger
 bool checkIsLarger(int);
 
-/*
-? Check if each charater of number is equal
-! 123321 = 1
-*/
+//* * Check if digit of number smaller and smaller
 bool checkIsSmaller(int);
 
+//* * Find the biggest in number
 int returnMax(int);
 
+//* * Find the smallest in number
 int returnMin(int);
 
 #endif  // _FUNCTION_H

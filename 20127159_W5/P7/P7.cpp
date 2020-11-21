@@ -4,10 +4,19 @@
 using namespace std;
 
 int main() {
-    const int a[] = {13, 4, 754, 32, 53, 23, 57};
-    const int q[] = {4, 2, 68, 6, 4, 2, 3};
-    for (int i = 0; i < sizeof(a) / sizeof(int); ++i) {
-        cout << a[i] << " " << q[i] << " " << divide(a[i], q[i]) << " " << mod(a[i], q[i]) << endl;
+    int a = 0, d = 0, q = 0, r = 0;
+    cout << "Input a - dividend (a >= 0): ";
+    cin >> a;
+    cout << "Input d - divisor (d > 0): ";
+    cin >> d;
+    if (divide(a, d, r) == true) {
+        cout << "The resualt of " << a << " divide " << d << " is: " << r << endl;
+        mod(a,d,r);
+        cout << "The remider is: " << r;
     }
+    else {
+        cout << "Can't divide by 0" << endl;
+    }
+
     return 0;
 }
