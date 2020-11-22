@@ -1,5 +1,6 @@
 #include "function.h"
 
+#include "math.h"
 /**
  * returnLengthNumber
  * * Caculate the length of a number
@@ -84,6 +85,32 @@ bool checkPalindromNumber(int *inputArray, int lengthOfArray) {
     }
 }
 
+/**
+ * checkClosePalindrom
+ * * Check input number is close to palindrom number and condition from user input
+ * * Example: 123321 | (1)2332(1) is one pair | 1(2)33(2)1 is one pair | 12(3)(3)21 is one pair
+ * @param: inputNumber: , closePair: the number pair can difference
+ */
+bool checkClosePalindrom(int inputNumber, int closePair) {
+    int count = 0, length = 0;
+
+    length = returnLengthNumber(inputNumber);
+    for (int i = 0; i < (length / 2); ++i) {
+        //                    -> 1|23321                                         12332|1 <-
+        if ((inputNumber / (int)pow(10, returnLengthNumber(inputNumber) - 1)) != (inputNumber % 10)) {
+            count++;
+        }
+        if (count > closePair) {
+            return false;
+        }
+        // 123321 -> 23321
+        inputNumber -= ((inputNumber / (int)pow(10, returnLengthNumber(inputNumber) - 1)) * pow(10, returnLengthNumber(inputNumber) - 1));
+        // 23321 -> 23332
+        inputNumber /= 10;
+    }
+    return true;
+}
+
 /** 
  * checkIsLarger
  * * Check if digit of number bigger and bigger
@@ -116,11 +143,11 @@ bool checkIsLarger(int inputNumber) {
 bool checkIsSmaller(int inputNumber) {
     int tempNumber;
     tempNumber = reverseNumber(inputNumber);
-    
+
     int prev = tempNumber % 10;
     int now = 0;
     tempNumber /= 10;
-    
+
     for (int i = 0; i < returnLengthNumber(inputNumber); ++i) {
         now = tempNumber % 10;
         if (now > prev) {
@@ -133,7 +160,7 @@ bool checkIsSmaller(int inputNumber) {
 /**
  * returnMax
  * * Find the biggest in number
-*/ 
+*/
 int returnMax(int inputNumber) {
     int max = 0;
     while (inputNumber != 0) {
@@ -148,9 +175,9 @@ int returnMax(int inputNumber) {
 /**
  * returnMax
  * * Find the smallest in number
-*/ 
+*/
 int returnMin(int inputNumber) {
-    int min = 0;
+    int min;
     while (inputNumber != 0) {
         if ((inputNumber % 10) < min) {
             min = inputNumber % 10;

@@ -16,6 +16,9 @@ int *numberToArray(int inputNumber);
 //* * Check if number is Palindrome, using compare with the pair of digit
 bool checkPalindromNumber(int *inputArray, int lengthOfArray);
 
+//* * Check input number is close to palindrom number and condition from user input
+bool checkClosePalindrom(int = 0, int = 1);
+
 //* * Check if digit of number bigger and bigger
 bool checkIsLarger(int);
 
