@@ -1,12 +1,14 @@
 #include <iostream>
 
 #include "function.h"
-
 using namespace std;
 
 int main() {
-    int a[100], n = 0;
+    int a[10000], n = 0, x = 0;
+
     inputArray(a, n);
-	cout << "Number in decimal is: " << binary2Decimal(a,n);
+    cout << "Input x: ";
+    cin >> x;
+    reord(a, n, 6);
     return 0;
 }

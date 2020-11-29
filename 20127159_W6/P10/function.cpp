@@ -4,8 +4,8 @@
 
 #include "math.h"
 void inputArray(int a[], int &n) {
-    std::cout << "Nhap so phan tu: ";
-    std::cin >> n;
+    std::cout << "Input Binary: ";
+    n = 16;
 
     for (int i = 0; i < n; ++i) {
         std::cout << "a[" << i << "]: ";
@@ -22,7 +22,7 @@ void printArray(int a[], int n) {
 
 int binary2Decimal(int a[], int n) {
     int sum = 0;
-    for (int i = (n - 1); i < 0; ++i) {
+    for (int i = (n - 1); i > 0; --i) {
         if (a[i] == 1) {
             sum += pow(2, (-i + 15));
         }

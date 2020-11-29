@@ -5,8 +5,13 @@
 using namespace std;
 
 int main() {
-    int a[100], n = 0;
+    int a[1000], n = 0;
     inputArray(a, n);
-	cout << "Number in decimal is: " << binary2Decimal(a,n);
+    cout << endl;
+
+    tachPrime(a, n);
+    cout << endl;
+
+    DESCInt(a, n);
     return 0;
 }
