@@ -12,18 +12,16 @@ void inputArray(int a[], int &n) {
     }
 }
 
+void printArray(int a[], int n) {
+    std::cout << "Print all of element in array: " << std::endl;
+    for (int i = 0; i < n; ++i) {
+        std::cout << "a[" << i << "]: " << a[i] << std::endl;
+    }
+}
+
 bool isArrayLarger(int a[], int n) {
     for (int i = 0; i < n - 1; ++i) {
         if (a[i] > a[i + 1]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-bool isArraySmaller(int a[], int n) {
-    for (int i = 0; i < n - 1; ++i) {
-        if (a[i] < a[i + 1]) {
             return false;
         }
     }
@@ -44,4 +42,15 @@ void sort(int a[], int n) {
             }
         }
     }
+}
+
+void merge2Array(int a[], int n, int b[], int m, int c[]) {
+    for (int i = 0; i < n; ++i) {
+        c[i] = a[i];
+    }
+    for (int i = n; i < (m + n); ++i) {
+        c[i] = b[i - n];
+    }
+
+    sort(c, (m + n));
 }

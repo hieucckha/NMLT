@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+#include "math.h"
 void inputArray(int a[], int &n) {
     std::cout << "Nhap so phan tu: ";
     std::cin >> n;
@@ -12,26 +13,22 @@ void inputArray(int a[], int &n) {
     }
 }
 
-void printArray(int a[],int n) {
+void printArray(int a[], int n) {
     std::cout << "Print all of element in array: " << std::endl;
-    for (int i=0;i < n;++i) {
+    for (int i = 0; i < n; ++i) {
         std::cout << "a[" << i << "]: " << a[i] << std::endl;
     }
 }
 
-bool isXHasInArray(int a[], int n, int x) {
-    for (int i = 0; i < n; ++i) {
-        if (a[i] == x) {
-            return true;
+int binary2Decimal(int a[], int n) {
+    int sum = 0;
+    for (int i = (n - 1); i < 0; ++i) {
+        if (a[i] == 1) {
+            sum += pow(2, (-i + 15));
         }
     }
-    return false;
-}
-
-void addX(int a[], int &n, int x) {
-    n++;
-    for (int i = n - 1; i > 1 - 1; i--) {
-        a[i] = a[i - 1];
+    if (a[0] == 1) {
+        sum = sum - sum - sum;
     }
-    a[1] = x;
+    return sum;
 }

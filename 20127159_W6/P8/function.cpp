@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-void inputArray(int a[], int &n) {
+void inputArray(double a[], int &n) {
     std::cout << "Nhap so phan tu: ";
     std::cin >> n;
 
@@ -12,26 +12,19 @@ void inputArray(int a[], int &n) {
     }
 }
 
-void printArray(int a[],int n) {
+void printArray(double a[], int n) {
     std::cout << "Print all of element in array: " << std::endl;
-    for (int i=0;i < n;++i) {
+    for (int i = 0; i < n; ++i) {
         std::cout << "a[" << i << "]: " << a[i] << std::endl;
     }
 }
 
-bool isXHasInArray(int a[], int n, int x) {
+int countPosNumber(double a[], int n) {
+    int count = 0;
     for (int i = 0; i < n; ++i) {
-        if (a[i] == x) {
-            return true;
+        if (a[i] < 0) {
+            count++;
         }
     }
-    return false;
-}
-
-void addX(int a[], int &n, int x) {
-    n++;
-    for (int i = n - 1; i > 1 - 1; i--) {
-        a[i] = a[i - 1];
-    }
-    a[1] = x;
+    return count;
 }

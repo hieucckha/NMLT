@@ -1,0 +1,4 @@
+#ifndef _ARRAYFUNCTION_H
+#define _ARRAYFUNCTION_H
+
+#endif // _ARRAYFUNCTION_H
