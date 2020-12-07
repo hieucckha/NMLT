@@ -1,5 +1,8 @@
 #include "sortFunction.h"
 
+#include <iostream>
+using namespace std;
+
 void swap(int &a, int &b) {
     int temp = a;
     a = b;
@@ -17,8 +20,10 @@ void bubleSort(int a[], int length) {
 }
 
 void sortBorder(int a[][100], int __row, int __col) {
-    int temp[(100 * 100) - ((__row - 2) * (__col - 2))], length = 0;
+    // Init a array has capacity is border
+    int temp[(100 * 100) - ((100 - 2) * (100 - 2))], length = 0;
 
+    // Append border element to temp
     for (int row = 0; row < __row; ++row) {
         for (int col = 0; col < __col; ++col) {
             if ((row == 0) || (col == 0) || (row == (__row - 1)) || (col == (__col - 1))) {
@@ -28,24 +33,28 @@ void sortBorder(int a[][100], int __row, int __col) {
         }
     }
 
+    // Sort array has border element
     bubleSort(temp, length);
+
+    // Change the top of matrix
     for (int col = 0; col < __col; ++col) {
         a[0][col] = temp[col];
     }
 
+    // Change the side of matrix
     for (int row = 1; row < (__row - 1); ++row) {
-        for (int col = 0; col < (__col + 1); col += __col) {
+        for (int col = 0; col < __col; col += (__col - 1)) {
             if (col == 0) {
                 a[row][col] = temp[length - row];
             } else {
-                a[row][col] = temp[__row - 1 + row];
+                a[row][col] = temp[__col + row - 1];
             }
         }
     }
 
-    // ! CHua xong
-
+    // Change the bottom of matrix
     for (int col = 0; col < __col; ++col) {
-        a[__row - 1][col] = temp[__col + __row - 2 + __col - col];
+        a[__row - 1][col] = temp[__col + __row - 2 + __col - col - 1];
+        cout << (__col + __row - 2 + __col - col) << " " << temp[__col + __row - 2 + __col - col - 1] << endl;
     }
 }

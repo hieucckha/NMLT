@@ -22,7 +22,6 @@ void inputMatrix(int a[][100], int &__row, int &__col) {
 }
 
 void outputMatrix(int a[][100], int __row, int __col) {
-    cout << "The matrix is:" << '\n';
     for (int row = 0; row < __row; ++row) {
         for (int col = 0; col < __col; ++col) {
             cout << "[" << a[row][col] << "] ";
@@ -31,6 +30,7 @@ void outputMatrix(int a[][100], int __row, int __col) {
     }
 }
 
+// Question 4
 bool printBigerSum(int a[][100], int __row, int __col) {
     int count = 0;
 
@@ -52,6 +52,7 @@ bool printBigerSum(int a[][100], int __row, int __col) {
     return true;
 }
 
+// Question 5
 void printMaxRCInMatrix(int a[][100], int __row, int __col) {
     int temp[__row + __col], length = 0, pos = 0;
     for (int row = 0; row < __row; ++row) {
@@ -73,6 +74,7 @@ void printMaxRCInMatrix(int a[][100], int __row, int __col) {
     cout << endl;
 }
 
+// Question 7
 void printSaddlePoint(int a[][100], int __row, int __col) {
     int count = 0;
     cout << "The saddle point is: ";
@@ -81,7 +83,7 @@ void printSaddlePoint(int a[][100], int __row, int __col) {
             if (isSaddlePoint(a, __row, __col, row, col) == true) {
                 count++;
                 cout << '\n'
-                     << "a[" << row << "][" << col << "]: " a[row][col];
+                     << "a[" << row << "][" << col << "]: " << a[row][col];
             }
         }
     }

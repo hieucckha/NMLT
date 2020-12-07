@@ -18,17 +18,20 @@ bool findX(int a[][100], int __row, int __col, int x, int &posRow, int &posCol) 
 
 int findMaxArray(int a[], int length, int &pos) {
     int max = INT32_MIN;
+
     for (int i = 0; i < length; ++i) {
         if (a[i] > max) {
             max = a[i];
             pos = i;
         }
     }
+
     return max;
 }
 
 int findMaxMatrix(int a[][100], int __row, int __col, int &posRow, int &posCol) {
     int max = INT32_MIN;
+
     for (int row = 0; row < __row; ++row) {
         for (int col = 0; col < __col; ++col) {
             if (a[row][col] > max) {
@@ -38,11 +41,14 @@ int findMaxMatrix(int a[][100], int __row, int __col, int &posRow, int &posCol) 
             }
         }
     }
+
     return max;
 }
 
 int findMaxBorder(int a[][100], int __row, int __col, int &posRow, int &posCol) {
     int max = INT32_MIN;
+
+    // The top of matrix
     for (int col = 0; col < __col; ++col) {
         if (a[0][col] > max) {
             max = a[0][col];
@@ -51,6 +57,7 @@ int findMaxBorder(int a[][100], int __row, int __col, int &posRow, int &posCol) 
         }
     }
 
+    // The middle of matrix
     for (int row = 1; row < (__row - 1); ++row) {
         for (int col = 0; col != __col; col = __col) {
             if (a[row][col] > max) {
@@ -61,6 +68,7 @@ int findMaxBorder(int a[][100], int __row, int __col, int &posRow, int &posCol) 
         }
     }
 
+    // The bottom of matrix
     for (int col = 0; col < __col; ++col) {
         if (a[__row - 1][col] > max) {
             max = a[__row - 1][col];
@@ -68,9 +76,12 @@ int findMaxBorder(int a[][100], int __row, int __col, int &posRow, int &posCol) 
             posCol = col;
         }
     }
+
     return max;
 }
 
+// Return false if matrix has not inside
+// Example: [2x2] matrix
 bool findMaxInside(int a[][100], int __row, int __col, int &posRow, int &posCol) {
     if (__row <= 2 && __col <= 2) {
         return false;
@@ -87,11 +98,13 @@ bool findMaxInside(int a[][100], int __row, int __col, int &posRow, int &posCol)
             }
         }
     }
+
     return true;
 }
 
 int findMaxRow(int a[][100], int thatRow, int __col, int &posRow, int &posCol) {
     int max = INT32_MIN;
+
     for (int col = 0; col < __col; ++col) {
         if (a[thatRow][col] > max) {
             max = a[thatRow][col];
@@ -99,11 +112,13 @@ int findMaxRow(int a[][100], int thatRow, int __col, int &posRow, int &posCol) {
             posCol = col;
         }
     }
+
     return max;
 }
 
 int findMinRow(int a[][100], int thatRow, int __col, int &posRow, int &posCol) {
     int min = INT32_MAX;
+
     for (int col = 0; col < __col; ++col) {
         if (a[thatRow][col] < min) {
             min = a[thatRow][col];
@@ -111,11 +126,13 @@ int findMinRow(int a[][100], int thatRow, int __col, int &posRow, int &posCol) {
             posCol = col;
         }
     }
+
     return min;
 }
 
 int findMaxCol(int a[][100], int __row, int thatCol, int &posRow, int &posCol) {
     int max = INT32_MIN;
+
     for (int row = 0; row < __row; ++row) {
         if (a[row][thatCol] > max) {
             max = a[row][thatCol];
@@ -123,11 +140,13 @@ int findMaxCol(int a[][100], int __row, int thatCol, int &posRow, int &posCol) {
             posCol = thatCol;
         }
     }
+
     return max;
 }
 
 int findMinCol(int a[][100], int __row, int thatCol, int &posRow, int &posCol) {
     int min = INT32_MAX;
+
     for (int row = 0; row < __row; ++row) {
         if (a[row][thatCol] < min) {
             min = a[row][thatCol];
@@ -135,17 +154,20 @@ int findMinCol(int a[][100], int __row, int thatCol, int &posRow, int &posCol) {
             posCol = thatCol;
         }
     }
+
     return min;
 }
 
 int findMaxPriDiago(int a[][100], int __row, int __col, int posNumRow, int posNumCol, int &posRow, int &posCol) {
-    // if ((posNumRow < (0)) || (posNumRow > (__row - 1))) {
-    //     return false;
-    // }
+    /*
+    if ((posNumRow < (0)) || (posNumRow > (__row - 1))) {
+        return false;
+    }
 
-    // if ((posNumCol < (0)) || (posNumCol > (__col - 1))) {
-    //     return false;
-    // }
+    if ((posNumCol < (0)) || (posNumCol > (__col - 1))) {
+        return false;
+    }
+    */
 
     int rowIndex = posNumRow, colIndex = posNumCol;
     int max = INT32_MIN;
@@ -178,14 +200,17 @@ int findMaxPriDiago(int a[][100], int __row, int __col, int posNumRow, int posNu
 }
 
 int findMaxSecDiago(int a[][100], int __row, int __col, int posNumRow, int posNumCol, int &posRow, int &posCol) {
-    // if ((posNumRow < (0)) || (posNumRow > (__row - 1))) {
-    //     return false;
-    // }
+    /*
+    if ((posNumRow < (0)) || (posNumRow > (__row - 1))) {
+        return false;
+    }
 
-    // if ((posNumCol < (0)) || (posNumCol > (__col - 1))) {
-    //     return false;
-    // }
-
+    if ((posNumCol < (0)) || (posNumCol > (__col - 1))) {
+        return false;
+    }
+    
+    */
+    
     int rowIndex = posNumRow, colIndex = posNumCol;
     int max = INT32_MIN;
 

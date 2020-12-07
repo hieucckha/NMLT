@@ -18,7 +18,7 @@ int main() {
 
     cout << "--Importing your 2D matrix--\n";
     inputMatrix(a, __row, __col);
-    cout << "Your matrix is:";
+    cout << "--The matrix is--\n";
     outputMatrix(a, __row, __col);
 
     cout << '\n'
@@ -44,6 +44,7 @@ int main() {
          << '\n';
 
     switch (choose) {
+        // 1. Find X in matrix
         case 1: {
             int x = 0, posRow = 0, posCol = 0;
             cout << "Input x: ";
@@ -58,6 +59,7 @@ int main() {
                 cout << "Column: " << posCol << '\n';
             }
         } break;
+        // 2. Find the largest element and border
         case 2: {
             int x = 0, posRow = 0, posCol = 0;
             cout << "Max in matrix is: \n";
@@ -73,6 +75,7 @@ int main() {
             cout << "At row: " << posRow << endl;
             cout << "At column: " << posCol << endl;
         } break;
+        // 3. Sum matrix and identify those whose values are greater than this sum
         case 3: {
             int sum = 0;
             sum = sumAll(a, __row, __col);
@@ -82,6 +85,7 @@ int main() {
 
             printBigerSum(a, __row, __col);
         } break;
+        // 4. Sum each rows & columns , max of row / column
         case 4: {
             cout << "Sum of each row is: " << endl;
             for (int row = 0; row < __row; ++row) {
@@ -97,21 +101,29 @@ int main() {
 
             printMaxRCInMatrix(a, __row, __col);
         } break;
+        // 5. Check if a matrix is a magic square
         case 5: {
             cout << "The matrix is " << (isMagicSquare(a, __row, __col) == true ? "a " : "not ") << "magic square" << endl;
-        }
-            break;
+        } break;
+        // 6. Show the "saddle" positions on the matrix
         case 6: {
-            
-        }
-            cout << "Here";
-            break;
-        case 7:
-            cout << "Here";
-            break;
-        default:
-            cout << "Here";
-            break;
+            printSaddlePoint(a, __row, __col);
+        } break;
+        // 7. Count the number of \"queens\" on the matrix
+        case 7: {
+            cout << "The number of \"queen\" in matrix is: " << countQueenNum(a, __row, __col) << endl;
+        } break;
+        // 8. Arrange the values on the matrix edge in increasing clockwise direction
+        default: {
+            cout << "The array before sort of border: \n";
+            outputMatrix(a, __col, __row);
+
+            cout << '\n';
+
+            sortBorder(a, __row, __col);
+            cout << "The array after sort of border: \n";
+            outputMatrix(a, __row, __col);
+        } break;
     }
     return 0;
 }
