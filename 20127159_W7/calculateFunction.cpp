@@ -41,3 +41,4 @@ int sumSecDiago(int a[][100], int __row, int __col) {
     }
     return sum;
 }
+

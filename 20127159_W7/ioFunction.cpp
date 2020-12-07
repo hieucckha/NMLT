@@ -1,8 +1,9 @@
 #include "ioFunction.h"
 
-#include <iostream>
-
 #include "calculateFunction.h"
+#include "checkFunction.h"
+#include "findFunction.h"
+#include "iostream"
 using namespace std;
 
 void inputMatrix(int a[][100], int &__row, int &__col) {
@@ -33,13 +34,14 @@ void outputMatrix(int a[][100], int __row, int __col) {
 bool printBigerSum(int a[][100], int __row, int __col) {
     int count = 0;
 
-    cout << "All element in matrix biger than sum is: ";
+    cout << "The element in matrix biger than sum is: ";
 
     for (int row = 0; row < __row; ++row) {
         for (int col = 0; col < __col; ++col) {
             if (a[row][col] > sumAll(a, __row, __col)) {
                 count++;
-                cout << '\n' << "a[" << row << "][" << col << "]: " << a[row][col];
+                cout << '\n'
+                     << "a[" << row << "][" << col << "]: " << a[row][col];
             }
         }
     }
@@ -48,4 +50,42 @@ bool printBigerSum(int a[][100], int __row, int __col) {
         return false;
     }
     return true;
+}
+
+void printMaxRCInMatrix(int a[][100], int __row, int __col) {
+    int temp[__row + __col], length = 0, pos = 0;
+    for (int row = 0; row < __row; ++row) {
+        temp[length] = sumRow(a, row, __col);
+        length++;
+    }
+
+    cout << '\n';
+
+    for (int col = 0; col < __col; ++col) {
+        temp[length] = sumCol(a, __row, col);
+        length++;
+    }
+
+    findMaxArray(temp, length, pos);
+    cout << "The largest has value is: " << findMaxArray(temp, length, pos) << endl;
+    cout << "At " << ((pos <= (__row - 1)) ? (" row: ") : (" column: "));
+    cout << ((pos <= (__row - 1)) ? (pos) : (pos - __row));
+    cout << endl;
+}
+
+void printSaddlePoint(int a[][100], int __row, int __col) {
+    int count = 0;
+    cout << "The saddle point is: ";
+    for (int row = 0; row < __row; ++row) {
+        for (int col = 0; col < __col; ++col) {
+            if (isSaddlePoint(a, __row, __col, row, col) == true) {
+                count++;
+                cout << '\n'
+                     << "a[" << row << "][" << col << "]: " a[row][col];
+            }
+        }
+    }
+    if (count == 0) {
+        cout << "None" << '\n';
+    }
 }

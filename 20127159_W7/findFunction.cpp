@@ -1,6 +1,7 @@
 #include "findFunction.h"
-#define INT32_MIN (-2147483646)
+
 #define INT32_MAX (2147483647)
+#define INT32_MIN (-2147483646)
 
 bool findX(int a[][100], int __row, int __col, int x, int &posRow, int &posCol) {
     for (int row = 0; row < __row; ++row) {
@@ -13,6 +14,17 @@ bool findX(int a[][100], int __row, int __col, int x, int &posRow, int &posCol) 
         }
     }
     return false;
+}
+
+int findMaxArray(int a[], int length, int &pos) {
+    int max = INT32_MIN;
+    for (int i = 0; i < length; ++i) {
+        if (a[i] > max) {
+            max = a[i];
+            pos = i;
+        }
+    }
+    return max;
 }
 
 int findMaxMatrix(int a[][100], int __row, int __col, int &posRow, int &posCol) {
@@ -126,22 +138,79 @@ int findMinCol(int a[][100], int __row, int thatCol, int &posRow, int &posCol) {
     return min;
 }
 
-//7. Chỉ ra các vị trí “yên ngựa” trên ma trận. (lớn nhất trên dòng và nhỏ nhất trên cột)
-bool findSaddlePoint(int a[][100], int __row, int __col, int &posRow, int &posCol) {
-    int posMaxRow, posMaxCol, max;
-    int posMinRow, posMinCol, min;
+int findMaxPriDiago(int a[][100], int __row, int __col, int posNumRow, int posNumCol, int &posRow, int &posCol) {
+    // if ((posNumRow < (0)) || (posNumRow > (__row - 1))) {
+    //     return false;
+    // }
 
-    for (int row = 0; row < __row; ++row) {
-        max = findMaxRow(a, row, __col, posMaxRow, posMaxCol);
+    // if ((posNumCol < (0)) || (posNumCol > (__col - 1))) {
+    //     return false;
+    // }
 
-        for (int col = 0; col < __col; ++col) {
-            min = findMinCol(a, __row, col, posMinRow, posMinCol);
-            if ((min == max) && (posMinRow == posMaxRow) && (posMinCol == posMaxCol)) {
-                posRow = posMaxRow;
-                posCol = posMaxCol;
-                return true;
-            }
+    int rowIndex = posNumRow, colIndex = posNumCol;
+    int max = INT32_MIN;
+
+    // ! Shift to the left
+    while ((rowIndex >= 0) && (colIndex >= 0)) {
+        if (a[rowIndex][colIndex] > max) {
+            max = a[rowIndex][colIndex];
+            posRow = rowIndex;
+            posCol = colIndex;
         }
+        rowIndex--;
+        colIndex--;
     }
-    return false;
+
+    rowIndex = posNumRow;
+    colIndex = posNumCol;
+    // ! Shift to the right
+    while ((rowIndex <= __row) && (colIndex <= __col)) {
+        if (a[rowIndex][colIndex] > max) {
+            max = a[rowIndex][colIndex];
+            posRow = rowIndex;
+            posCol = colIndex;
+        }
+        rowIndex++;
+        colIndex++;
+    }
+
+    return max;
+}
+
+int findMaxSecDiago(int a[][100], int __row, int __col, int posNumRow, int posNumCol, int &posRow, int &posCol) {
+    // if ((posNumRow < (0)) || (posNumRow > (__row - 1))) {
+    //     return false;
+    // }
+
+    // if ((posNumCol < (0)) || (posNumCol > (__col - 1))) {
+    //     return false;
+    // }
+
+    int rowIndex = posNumRow, colIndex = posNumCol;
+    int max = INT32_MIN;
+
+    // ! Shift to the left
+    while ((rowIndex <= __row) && (colIndex >= 0)) {
+        if (a[rowIndex][colIndex] > max) {
+            max = a[rowIndex][colIndex];
+            posRow = rowIndex;
+            posCol = colIndex;
+        }
+        rowIndex++;
+        colIndex--;
+    }
+
+    rowIndex = posNumRow;
+    colIndex = posNumCol;
+    // ! Shift to the right
+    while ((rowIndex >= 0) && (colIndex <= __col)) {
+        if (a[rowIndex][colIndex] > max) {
+            max = a[rowIndex][colIndex];
+            posRow = rowIndex;
+            posCol = colIndex;
+        }
+        rowIndex--;
+        colIndex++;
+    }
+    return max;
 }

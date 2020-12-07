@@ -20,10 +20,10 @@
 
 # 3. Tìm phần tử lớn nhất trong ma trận và trên biên ma trận.
 
-# 4. Tính tổng các phần tử trong ma trận và xác định các phần tử có giá trị lớn hơn tổng này
- - Còn cái phần gọi hàm in tiếp (sửa lại hàm printBigerSum())
 
-# 5. Tính tổng các dòng & các cột trong ma trận, cho biết gia trị lớn nhất thuộc dòng /cột nào
+# 4. Tính tổng các phần tử trong ma trận và xác định các phần tử có giá trị lớn hơn tổng này
+
+# 5. Tính tổng các dòng & các cột trong ma trận, cho biết gia trị lớn nhất thuộc dòng /cột n ào
 // Viết hàm 
 
 # 6. Kiểm tra 1 ma trận có phải là ma phương.
@@ -36,19 +36,19 @@
 00-11-22
 01-12-23
 
-7. Chỉ ra các vị trí “yên ngựa” trên ma trận. (lớn nhất trên dòng và nhỏ nhất trên cột)
+# 7. Chỉ ra các vị trí “yên ngựa” trên ma trận. (lớn nhất trên dòng và nhỏ nhất trên cột)
 {1, 2, 3},
 {4, 5, 6},
 {10, 18, 4}
 
-8. Đếm số “hoàng hậu” trên ma trận. (lớn nhất trên dòng, cột và 2 đường chéo đi qua nó)
+# 8. Đếm số “hoàng hậu” trên ma trận. (lớn nhất trên dòng, cột và 2 đường chéo đi qua nó)
 
 
 
 9. Sắp xếp các giá trị nằm trên biên ma trận tăng dần theo chiều kim đồng hồ
 
 io - find - caculate - caculate - check - find - (check-count) - sort 
-
+/*
 {
 // int main() {
 //     // /*
@@ -68,6 +68,7 @@ io - find - caculate - caculate - check - find - (check-count) - sort
 //     }
 //     return 0;
 // }
+*/
 
 // bool fullEven(int n) {
 //     while ((n % 2 == 0) && (n != 0)) {
@@ -85,3 +86,4 @@ io - find - caculate - caculate - check - find - (check-count) - sort
 //     return -1;
 // }
 }
+
