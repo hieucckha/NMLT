@@ -1,8 +1,5 @@
 #include "sortFunction.h"
 
-#include <iostream>
-using namespace std;
-
 void swap(int &a, int &b) {
     int temp = a;
     a = b;
@@ -54,7 +51,6 @@ void sortBorder(int a[][100], int __row, int __col) {
 
     // Change the bottom of matrix
     for (int col = 0; col < __col; ++col) {
-        a[__row - 1][col] = temp[__col + __row - 2 + __col - col - 1];
-        cout << (__col + __row - 2 + __col - col) << " " << temp[__col + __row - 2 + __col - col - 1] << endl;
+        a[__row - 1][col] = temp[__col + __row - 2 + __col - 1 - col];
     }
 }

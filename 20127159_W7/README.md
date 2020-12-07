@@ -45,45 +45,79 @@
 
 
 
-9. Sắp xếp các giá trị nằm trên biên ma trận tăng dần theo chiều kim đồng hồ
+# 9. Sắp xếp các giá trị nằm trên biên ma trận tăng dần theo chiều kim đồng hồ
+## Mã giả của Buble sort
+```
+begin 
+   for i in 0 to N-2:
+      for j in 0 to  N-i-1:
+         if(arr[j] > arr[j+1])
+            swap
+         endif
+      endfor
+   endfor 
+end
+```
+--------------------
+## Mã giả cho sort theo chiều kim đồng hồ
+
+# Array
+1 2 3
+4 5 6
+7 8 9
+```
+begin
+   # Traverse all element in border to tempArray
+   for row in 0 to ROW:
+      for col in COLUMN:
+         if (row = 0) or (col = 0) or (row = ROW -1) or (col = COLUMN - 1)
+            tempArray.append(arr[row][col]) 
+         endif
+      endfor
+   endfor
+
+   # List element in clockwise order
+   # {1, 2, 3, 6, 9, 8, 7, 4}
+
+   sort(tempArray)
+
+   # List element after sorting
+   {1, 2, 3, 4, 6, 7, 8, 9}
+
+   {[1, 2, 3], 4, 6, 7, 8, 9}
+   # First row of matrix
+   for col in 0 to COLUMN:
+      array[0][col] = tempArray[col]
+   endfor
+
+   {[1, 2, 3], [4], 6, 7, 8, [9]}
+   # Two side of matrix
+   for row in 1 to ROW - 1:
+      for col in 0 and COLUMN:
+         if col = 0:
+            array[row][col] = tempArray[length - row];
+         endif
+         if col = COLUMN:
+            {1, 2, 3,  [4] , 6, 7, 8, 9}
+            [ COLUMN ][ROW]          
+            array[row][col] = tempArray[COLUMN + row - 1]
+         endif
+      endfor
+   endfor
+
+   {[1, 2, 3], [4], [6, 7, 8], [9]}
+   # Last row of matrix
+   for col in 0 to COLUMN:
+      {1, 2, 3,   4,  6, 7, 8,  9}
+      {[COLUMN] [ROW] [COLUMN] [ROW]}
+      # Input the last element in reverse order
+      a[ROW - 1][col] = tempArray[COLUMN -1 + ROW - 1 + COLUMN - 1 - col]
+   endfor
+end   
+```
+# https://www.geeksforgeeks.org/sorting-boundary-elements-of-a-matrix/
+
+
+
 
 io - find - caculate - caculate - check - find - (check-count) - sort 
-/*
-{
-// int main() {
-//     // /*
-//     // // int a[100][100], __row = 0, __col = 0, max = 0, posRow = 0, posCol = 0;
-//     // // int x = 3;
-
-//     // // inputMatrix(a, __row, __col);
-//     // // outputMatrix(a, __row, __col);
-//     // */
-
-//     int a[] = {112, 2356, 2020, 5, 8};
-//     int n = sizeof(a) / sizeof(a[0]);
-//     int pos = searchFullEven(a, n);
-//     while (pos != -1) {
-//         cout << "\nPhan tu thpa " << pos;
-//         pos = searchFullEven(a, n, pos + 1);
-//     }
-//     return 0;
-// }
-*/
-
-// bool fullEven(int n) {
-//     while ((n % 2 == 0) && (n != 0)) {
-//         n /= 10;
-//     }
-//     return (n == 0);
-// }
-
-// int searchFullEven(int a[], int n, int start = 0) {
-//     for (int i = start; i < n; ++i) {
-//         if (fullEven(a[i]) == true) {
-//             return i;
-//         }
-//     }
-//     return -1;
-// }
-}
-
