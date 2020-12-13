@@ -2,10 +2,16 @@
 
 #include "funcP5.h"
 
-using namespace std;
-
 int main(void) {
+    using namespace std;
 
-	
-	return 0;
+    char Source[100];
+
+    cout << "Input string: ";
+    cin.get(Source, 100).get();
+    returnName(Source);
+    titleCaseChar(Source);
+    cout << "String after standardized: " << Source;
+
+    return 0;
 }
